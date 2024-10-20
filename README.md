@@ -1,1 +1,1 @@
-git@github.com:svekoke/zakrivayuschiy-teg-f.git
+https://github.com/svekoke/zakrivayuschiy-teg-f/tree/main
