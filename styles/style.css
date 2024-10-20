@@ -304,6 +304,8 @@
   max-height: 191px;
   max-width: 353px;
   overflow-y: hidden;
+  background-color: var(--background-color);
+  color: var(--accent-color);
 }
 
 .dialog__text {
@@ -409,7 +411,7 @@ dialog::backdrop {
 }
 
 .card:nth-of-type(7) .image:nth-child(1) {
-  filter: invert(1) brightness(200%) saturate(60%) hue-rotate(90deg);
+  filter: brightness(200%) saturate(60%) hue-rotate(90deg);
 }
 
 .card:nth-of-type(8) .image:nth-child(1) {
