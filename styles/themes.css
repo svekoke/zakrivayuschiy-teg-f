@@ -36,20 +36,20 @@
   linear-gradient(to bottom,#e7e7e7 0%,#e7e7e7 0.01%, #1a1a1a 100%);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --text-font-weight: 400;
-    --title-font-weight: 700;
-    --background-color: #fff;
-    --accent-color: #000;
-    --contour-color:#000;
-    --button-text:#fff;
-    --opacity:1;
-    --hearth-contour:#000;
-    --hearth-color:rgba(255, 0, 0, 1);
-    --watermark:rgba(255, 255, 255, 0.5);
-    --background-image:repeating-linear-gradient(to right,#d3d3d3 0px 2px,transparent 2px 4px),
-    repeating-linear-gradient(to bottom,#d3d3d3 0px 2px,transparent 2px 4px),
-    linear-gradient(to bottom,#e7e7e7 0%,#e7e7e7 0.01%, #1a1a1a 100%);
+    --text-font-weight: 465;
+  --title-font-weight: 785;
+  --background-color:  #000;
+  --accent-color: rgba(0, 204, 20, 1);
+  --contour-color:rgba(0, 204, 20, 1);
+  --button-text:rgba(0, 204, 20, 1);
+  --opacity:0;
+  --hearth-contour:rgba(0, 204, 20, 1);
+  --hearth-color:rgba(255, 0, 0, 1);
+  --watermark:#000;
+  --background-image:repeating-linear-gradient(to right,#000 0px 2px,transparent 2px 4px),
+  repeating-linear-gradient(to bottom,#000 0px 2px,transparent 2px 4px),
+  linear-gradient(to bottom,#007f0c 0%,#004306 100%);
   }
 }

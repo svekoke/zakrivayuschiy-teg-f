@@ -22,6 +22,7 @@
   background-color: var(--background-color);
   color: var(--accent-color);
   background-image: var(--background-image);
+  background-position: center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -31,7 +32,7 @@
 }
 
 .header {
-  border: 2px solid rgba(0, 0, 0, 1);
+  border: 2px solid var(--accent-color);
   font-family: var(--accent-font);
   background-color: var(--background-color);
   display: flex;
@@ -99,7 +100,7 @@
   width: 0%;
   height: 3px;
   margin-top: 2px;
-  background-color: #000000;
+  background-color: var(--accent-color);
   transition: 0.3s ease;
 }
 
@@ -130,6 +131,7 @@
   font-size: 18px;
   padding-bottom: 2px;
   flex-direction: column;
+  border: 2px solid var(--accent-color);
 }
 
 .card__title {
@@ -141,12 +143,14 @@
 
 .image-wrapper {
   position: relative;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: block;
+  object-fit: cover; 
 }
 
 .image-watermark {
@@ -158,8 +162,20 @@
   line-height: 14px;
   opacity: 50%;
   color: var(--accent-color);
-  text-shadow: -1px 0px var(--watermark), 0px 1px var(--watermark),
-    0px -1px var(--watermark), 1px 0px var(--watermark);
+  text-shadow: 1px 1px var(--watermark), -1px 1px var(--watermark),
+    1px -1px var(--watermark), -1px -1px var(--watermark);
+  mix-blend-mode: hard-light;
+}
+
+@supports (
+  (text-stroke: 1px var(--watermark)) or
+    (-webkit-text-stroke: 1px var(--watermark))
+) {
+  .image-watermark {
+    -webkit-text-stroke: 1px var(--watermark);
+    text-stroke: 1px var(--watermark);
+    text-shadow: none;
+  }
 }
 
 .card__text {
@@ -261,7 +277,7 @@
   justify-content: center;
   font-size: 14px;
   line-height: 12.6px;
-  padding-top: 6px;
+  padding-top: 2px;
 }
 
 .card__icon-button {
@@ -273,39 +289,33 @@
   height: 28px;
 }
 
-.footer {
+.section-save {
   max-width: 306px;
   margin-top: 53px;
 }
 
-.footer__button {
+.section-save__button {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 15px 19px;
   gap: 8px;
-  border: 2px solid rgba(0, 0, 0, 1);
+  border: 2px solid var(--accent-color);
 }
 
-.footer__button .button__text {
+.section-save__button .button__text {
   padding: 0;
   white-space: nowrap;
 }
 
 .dialog {
-  margin-top: 237px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 42px;
-  padding-right: 42px;
+  padding: 30px;
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
-  max-height: 191px;
-  max-width: 353px;
-  overflow-y: hidden;
   background-color: var(--background-color);
   color: var(--accent-color);
+  max-width: 341px;
 }
 
 .dialog__text {
@@ -324,6 +334,7 @@
   text-transform: uppercase;
   line-height: 12.6px;
   padding: 12.5px 114.5px;
+  width: 100%;
 }
 
 .dialog[open] {
@@ -351,12 +362,12 @@ dialog::backdrop {
 @media (width >= 700px) {
   .header,
   .main,
-  .footer {
+  .section-save {
     align-items: center;
     max-width: 700px;
   }
 
-  .footer {
+  .section-save {
     margin-top: 49px;
   }
 
@@ -375,7 +386,7 @@ dialog::backdrop {
     padding-top: 135px;
   }
 
-  .footer__button {
+  .section-save__button {
     flex-direction: row;
   }
 
@@ -388,32 +399,38 @@ dialog::backdrop {
     top: 29px;
     right: 26px;
   }
+
+  .dialog{
+    max-width: 353px;
+  }
 }
 
-.card:nth-of-type(2) .image:nth-child(1) {
+/*image filters*/
+
+.turn-shade-filter {
   filter: hue-rotate(90deg);
 }
 
-.card:nth-of-type(3) .image:nth-child(1) {
+.black-white-filter {
   filter: grayscale(0.8);
 }
 
-.card:nth-of-type(4).image:nth-child(1) {
+.opacity-filter {
   filter: opacity(0.8);
 }
 
-.card:nth-of-type(5) .image:nth-child(1) {
+.brightness-filter {
   filter: brightness(1000%);
 }
 
-.card:nth-of-type(6) .image:nth-child(1) {
+.mixed-filter {
   filter: sepia(1) contrast(2) brightness(200%);
 }
 
-.card:nth-of-type(7) .image:nth-child(1) {
-  filter: brightness(200%) saturate(60%) hue-rotate(90deg);
+.saturate-filter {
+  filter: saturate(1000%);
 }
 
-.card:nth-of-type(8) .image:nth-child(1) {
+.total-black-white-filter {
   filter: grayscale(100%);
 }
